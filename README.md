@@ -1,4 +1,4 @@
-CBasicSpecification
+CPy Specification
 ===================
 
 The Reference Specification for the Language CPy.
