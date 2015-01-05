@@ -9,12 +9,44 @@
         <h1>Dim</h1>
         <hr></hr>
         <h2>The dim</h2>
-        <p>The dim is a variable value that you can change. The following codes define a dim "dimName" of type "dimDataType" without initialize:</p>
+        <p>The dim is a variable value that you can change. The following codes define a dim "dimName" of type "dimType" without initialize:</p>
         <code>dim &lt;dimType&gt; &lt;dimName&gt;</code><br/>
-        <p>And a dim "dimName" fo type "dimType" with initialize "dimInitializeValue":</p>
+        <p>And with initialize "dimInitializeValue":</p>
         <code>dim &lt;dimType&gt; &lt;dimName&gt;=&lt;dimInitializeValue&gt;</code><br/>
         <p>If you want to create more dims in a single line, use this:</p>
         <code>dim &lt;dimType&gt; &lt;dimName1&gt;[=&lt;dimInitializeValue1&gt;], &lt;dimName2&gt;[=&lt;dimInitializeValue2&gt;], ...</code><br/>
+        <hr></hr>
+        <h2>Const dim</h2>
+        <p>The "const" keyword means that the dim can't be change, just like the following:</p>
+        <code>const &lt;constDimType&gt; &lt;constDimName1&gt;=&lt;value1&gt;,  &lt;constDimName2&gt;=&lt;value2&gt;, ...</code>
+        <hr></hr>
+        <h2>Pointer</h2>
+        <p>The pointer save the address of a dim.Use "&<dimName>" to get the address of a dim, just like the following:</p>
+        <code>
+        dim int a<br/>
+        dim int* p=&amp;a</code><br/>
+        <p>And the pointer to a pointer:</p>
+        <code>
+        dim int a<br/>
+        dim int* p1=&amp;a<br/>
+        dim int* p2=&amp;p1</code><br/>
+        <p>To visit what pointer is pointed to, use the "*<pointerName>":</p>
+        <code>
+        dim int a=1, b=2, c<br/>
+        dim int* pa=&amp;a, pb=&amp;b<br/>
+        c=*pa+*pb; # The same as c=a+b</code><br/>
+        <hr></hr>
+        <h2>Array</h2>
+        <p>An array is a series of dims.The following codes define an array "arrayName" of size "arraySize" with dim type "dimType" without initialize:</p>
+        <code>dim &lt;dimType&gt; &lt;arrayName&gt;[arraySize]</code><br/>
+        <p>And with initialize datas:</p>
+        <code>dim &lt;dimType&gt; &lt;arrayName&gt;[arraySize]={&lt;value1&gt;, &lt;value2&gt;, ...}</code><br/>
+        <p>CPy only support 1-D array now.To visit one dim in array, use "<arrayName>[index]".Index start at 0, end at ()index-1).For example:</p>
+        <code>
+        dim int array[2]={1,2}<br/>
+        dim int arr0=array[0] # Get 1.<br/>
+        dim int arr1=array[1] # Get 2.<br/>
+        #dim int arr2=array[2] # DANGEROUS!!! Don't write like this, for you don't know what you will get!</code><br/>
         <hr></hr>
         <h2>Example</h2>
         <h3>Example 1</h3>
@@ -24,6 +56,14 @@
         &nbsp;&nbsp;&nbsp;&nbsp;dim int c<br/>
         &nbsp;&nbsp;&nbsp;&nbsp;c = a+b<br/>
         &nbsp;&nbsp;&nbsp;&nbsp;return c<br/>
+        end</code><br/>
+        <h3>Example 2</h3>
+        <code>
+        function int array(void)<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;dim int array[2]={1,2}<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;dim int ret<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;ret = array[0]+array[1]<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;return ret<br/>
         end</code><br/>
         <hr></hr>
         <a href="index.html">Index</a>
